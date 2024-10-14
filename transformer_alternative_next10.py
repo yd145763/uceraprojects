@@ -1,5 +1,12 @@
 # -*- coding: utf-8 -*-
 """
+Created on Mon Oct 14 12:57:45 2024
+
+@author: limyu
+"""
+
+# -*- coding: utf-8 -*-
+"""
 Created on Mon Aug 26 22:08:58 2024
 
 @author: limyu
@@ -270,7 +277,7 @@ for z in range(df.shape[0]):
             a = (b*(max_value - min_value))+min_value
             y_pred_single_denorm.append(a)
             
-        s = [y_pred_single_denorm[0], z, x+1, p, np.nan, np.nan, np.nan, np.nan]
+        s = [y_pred_single_denorm[0], 240, x+1, p, np.nan, np.nan, np.nan, np.nan]
         s = pd.Series(s)
         s.index = X_val_single_denorm.index
         s = pd.DataFrame(s)
@@ -288,7 +295,7 @@ for z in range(df.shape[0]):
         df_alternate.loc[df_alternate.index[-1], 'EMAL'] = np.array(EMAL)[-1]
     
     
-        s = [y_pred_single_denorm[1], z, x+2, p, np.nan, np.nan, np.nan, np.nan]
+        s = [y_pred_single_denorm[1], 240, x+2, p, np.nan, np.nan, np.nan, np.nan]
         s = pd.Series(s)
         s.index = X_val_single_denorm.index
         s = pd.DataFrame(s)
@@ -305,7 +312,7 @@ for z in range(df.shape[0]):
         df_alternate.loc[df_alternate.index[-1], 'EMAM'] = np.array(EMAM)[-1]
         df_alternate.loc[df_alternate.index[-1], 'EMAL'] = np.array(EMAL)[-1]
     
-        s = [y_pred_single_denorm[2], x, x+3, p, np.nan, np.nan, np.nan, np.nan]
+        s = [y_pred_single_denorm[2], 240, x+3, p, np.nan, np.nan, np.nan, np.nan]
         s = pd.Series(s)
         s.index = X_val_single_denorm.index
         s = pd.DataFrame(s)
@@ -322,7 +329,7 @@ for z in range(df.shape[0]):
         df_alternate.loc[df_alternate.index[-1], 'EMAM'] = np.array(EMAM)[-1]
         df_alternate.loc[df_alternate.index[-1], 'EMAL'] = np.array(EMAL)[-1]
     
-        s = [y_pred_single_denorm[3], z, x+4, p, np.nan, np.nan, np.nan, np.nan]
+        s = [y_pred_single_denorm[3], 240, x+4, p, np.nan, np.nan, np.nan, np.nan]
         s = pd.Series(s)
         s.index = X_val_single_denorm.index
         s = pd.DataFrame(s)
@@ -339,7 +346,7 @@ for z in range(df.shape[0]):
         df_alternate.loc[df_alternate.index[-1], 'EMAM'] = np.array(EMAM)[-1]
         df_alternate.loc[df_alternate.index[-1], 'EMAL'] = np.array(EMAL)[-1]
     
-        s = [y_pred_single_denorm[4], z, x+5, p, np.nan, np.nan, np.nan, np.nan]
+        s = [y_pred_single_denorm[4], 240, x+5, p, np.nan, np.nan, np.nan, np.nan]
         s = pd.Series(s)
         s.index = X_val_single_denorm.index
         s = pd.DataFrame(s)
@@ -356,7 +363,7 @@ for z in range(df.shape[0]):
         df_alternate.loc[df_alternate.index[-1], 'EMAM'] = np.array(EMAM)[-1]
         df_alternate.loc[df_alternate.index[-1], 'EMAL'] = np.array(EMAL)[-1]
     
-        s = [y_pred_single_denorm[5], z, x+6, p, np.nan, np.nan, np.nan, np.nan]
+        s = [y_pred_single_denorm[5], 240, x+6, p, np.nan, np.nan, np.nan, np.nan]
         s = pd.Series(s)
         s.index = X_val_single_denorm.index
         s = pd.DataFrame(s)
@@ -373,7 +380,7 @@ for z in range(df.shape[0]):
         df_alternate.loc[df_alternate.index[-1], 'EMAM'] = np.array(EMAM)[-1]
         df_alternate.loc[df_alternate.index[-1], 'EMAL'] = np.array(EMAL)[-1]
     
-        s = [y_pred_single_denorm[6], z, x+7, p, np.nan, np.nan, np.nan, np.nan]
+        s = [y_pred_single_denorm[6], 240, x+7, p, np.nan, np.nan, np.nan, np.nan]
         s = pd.Series(s)
         s.index = X_val_single_denorm.index
         s = pd.DataFrame(s)
@@ -391,7 +398,7 @@ for z in range(df.shape[0]):
         df_alternate.loc[df_alternate.index[-1], 'EMAL'] = np.array(EMAL)[-1]
     
     
-        s = [y_pred_single_denorm[7], z, x+8, p, np.nan, np.nan, np.nan, np.nan]
+        s = [y_pred_single_denorm[7], 240, x+8, p, np.nan, np.nan, np.nan, np.nan]
         s = pd.Series(s)
         s.index = X_val_single_denorm.index
         s = pd.DataFrame(s)
@@ -409,7 +416,7 @@ for z in range(df.shape[0]):
         df_alternate.loc[df_alternate.index[-1], 'EMAL'] = np.array(EMAL)[-1]
         
     
-        s = [y_pred_single_denorm[8], z, x+9, p, np.nan, np.nan, np.nan, np.nan]
+        s = [y_pred_single_denorm[8], 240, x+9, p, np.nan, np.nan, np.nan, np.nan]
         s = pd.Series(s)
         s.index = X_val_single_denorm.index
         s = pd.DataFrame(s)
@@ -433,5 +440,85 @@ for z in range(df.shape[0]):
     plt.show()
     df_alternate_contour[z] = df_alternate['e'][:df_data.shape[0]]
     df_actual_contour[z] = df_data['e']
-    
 
+df_alternate_contour = df_alternate_contour.transpose()
+    
+#set the range of x and z
+x = np.linspace(-45, 70, num=df_alternate_contour.shape[1])
+z = np.linspace(16, 90, num=df_alternate_contour.shape[0])
+
+#plotting the contour plot of the whole df, the whole picture of light coupled out from grating
+colorbarmax = df_alternate_contour.max().max()
+colorbarmin = df_alternate_contour.min().min()
+
+colorbartick = 9
+
+X,Z = np.meshgrid(x,z)
+df1 = df.to_numpy()
+
+#contour plot 
+fig = plt.figure(figsize=(7, 4))
+ax = plt.axes()
+cp=ax.contourf(X,Z,df_alternate_contour, 200, zdir='z', offset=-100, cmap='jet')
+clb=fig.colorbar(cp, ticks=(np.linspace(colorbarmin, colorbarmax, num = 6)).tolist())
+clb.ax.set_title('cnt/s', fontweight="bold")
+for l in clb.ax.yaxis.get_ticklabels():
+    l.set_weight("bold")
+    l.set_fontsize(15)
+ax.set_xlabel('x-position (µm)', fontsize=18, fontweight="bold", labelpad=1)
+ax.set_ylabel('z-position (µm)', fontsize=18, fontweight="bold", labelpad=1)
+
+
+ax.xaxis.label.set_fontsize(18)
+ax.xaxis.label.set_weight("bold")
+ax.yaxis.label.set_fontsize(18)
+ax.yaxis.label.set_weight("bold")
+ax.tick_params(axis='both', which='major', labelsize=15)
+ax.set_yticklabels(ax.get_yticks(), weight='bold')
+ax.set_xticklabels(ax.get_xticks(), weight='bold')
+ax.xaxis.set_major_formatter(StrMethodFormatter('{x:,.1f}'))
+ax.yaxis.set_major_formatter(StrMethodFormatter('{x:,.1f}'))
+#plt.axhline(y=12, color='white', linestyle='--')
+plt.show()
+plt.close()
+
+df_actual_contour = df_actual_contour.transpose()
+    
+#set the range of x and z
+x = np.linspace(-45, 70, num=df_actual_contour.shape[1])
+z = np.linspace(16, 90, num=df_actual_contour.shape[0])
+
+#plotting the contour plot of the whole df, the whole picture of light coupled out from grating
+colorbarmax = df_actual_contour.max().max()
+colorbarmin = df_actual_contour.min().min()
+
+colorbartick = 9
+
+X,Z = np.meshgrid(x,z)
+df1 = df.to_numpy()
+
+#contour plot 
+fig = plt.figure(figsize=(7, 4))
+ax = plt.axes()
+cp=ax.contourf(X,Z,df_actual_contour, 200, zdir='z', offset=-100, cmap='jet')
+clb=fig.colorbar(cp, ticks=(np.linspace(colorbarmin, colorbarmax, num = 6)).tolist())
+clb.ax.set_title('cnt/s', fontweight="bold")
+for l in clb.ax.yaxis.get_ticklabels():
+    l.set_weight("bold")
+    l.set_fontsize(15)
+ax.set_xlabel('x-position (µm)', fontsize=18, fontweight="bold", labelpad=1)
+ax.set_ylabel('z-position (µm)', fontsize=18, fontweight="bold", labelpad=1)
+
+
+ax.xaxis.label.set_fontsize(18)
+ax.xaxis.label.set_weight("bold")
+ax.yaxis.label.set_fontsize(18)
+ax.yaxis.label.set_weight("bold")
+ax.tick_params(axis='both', which='major', labelsize=15)
+ax.set_yticklabels(ax.get_yticks(), weight='bold')
+ax.set_xticklabels(ax.get_xticks(), weight='bold')
+ax.xaxis.set_major_formatter(StrMethodFormatter('{x:,.1f}'))
+ax.yaxis.set_major_formatter(StrMethodFormatter('{x:,.1f}'))
+#plt.axhline(y=12, color='white', linestyle='--')
+plt.show()
+plt.close()
