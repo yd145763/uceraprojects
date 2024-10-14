@@ -270,7 +270,7 @@ for z in range(df.shape[0]):
             a = (b*(max_value - min_value))+min_value
             y_pred_single_denorm.append(a)
             
-        s = [y_pred_single_denorm[0], 240, x+1, p, np.nan, np.nan, np.nan, np.nan]
+        s = [y_pred_single_denorm[0], z, x+1, p, np.nan, np.nan, np.nan, np.nan]
         s = pd.Series(s)
         s.index = X_val_single_denorm.index
         s = pd.DataFrame(s)
@@ -288,7 +288,7 @@ for z in range(df.shape[0]):
         df_alternate.loc[df_alternate.index[-1], 'EMAL'] = np.array(EMAL)[-1]
     
     
-        s = [y_pred_single_denorm[1], 240, x+2, p, np.nan, np.nan, np.nan, np.nan]
+        s = [y_pred_single_denorm[1], z, x+2, p, np.nan, np.nan, np.nan, np.nan]
         s = pd.Series(s)
         s.index = X_val_single_denorm.index
         s = pd.DataFrame(s)
@@ -305,7 +305,7 @@ for z in range(df.shape[0]):
         df_alternate.loc[df_alternate.index[-1], 'EMAM'] = np.array(EMAM)[-1]
         df_alternate.loc[df_alternate.index[-1], 'EMAL'] = np.array(EMAL)[-1]
     
-        s = [y_pred_single_denorm[2], 240, x+3, p, np.nan, np.nan, np.nan, np.nan]
+        s = [y_pred_single_denorm[2], x, x+3, p, np.nan, np.nan, np.nan, np.nan]
         s = pd.Series(s)
         s.index = X_val_single_denorm.index
         s = pd.DataFrame(s)
@@ -322,7 +322,7 @@ for z in range(df.shape[0]):
         df_alternate.loc[df_alternate.index[-1], 'EMAM'] = np.array(EMAM)[-1]
         df_alternate.loc[df_alternate.index[-1], 'EMAL'] = np.array(EMAL)[-1]
     
-        s = [y_pred_single_denorm[3], 240, x+4, p, np.nan, np.nan, np.nan, np.nan]
+        s = [y_pred_single_denorm[3], z, x+4, p, np.nan, np.nan, np.nan, np.nan]
         s = pd.Series(s)
         s.index = X_val_single_denorm.index
         s = pd.DataFrame(s)
@@ -339,7 +339,7 @@ for z in range(df.shape[0]):
         df_alternate.loc[df_alternate.index[-1], 'EMAM'] = np.array(EMAM)[-1]
         df_alternate.loc[df_alternate.index[-1], 'EMAL'] = np.array(EMAL)[-1]
     
-        s = [y_pred_single_denorm[4], 240, x+5, p, np.nan, np.nan, np.nan, np.nan]
+        s = [y_pred_single_denorm[4], z, x+5, p, np.nan, np.nan, np.nan, np.nan]
         s = pd.Series(s)
         s.index = X_val_single_denorm.index
         s = pd.DataFrame(s)
@@ -356,7 +356,7 @@ for z in range(df.shape[0]):
         df_alternate.loc[df_alternate.index[-1], 'EMAM'] = np.array(EMAM)[-1]
         df_alternate.loc[df_alternate.index[-1], 'EMAL'] = np.array(EMAL)[-1]
     
-        s = [y_pred_single_denorm[5], 240, x+6, p, np.nan, np.nan, np.nan, np.nan]
+        s = [y_pred_single_denorm[5], z, x+6, p, np.nan, np.nan, np.nan, np.nan]
         s = pd.Series(s)
         s.index = X_val_single_denorm.index
         s = pd.DataFrame(s)
@@ -373,7 +373,7 @@ for z in range(df.shape[0]):
         df_alternate.loc[df_alternate.index[-1], 'EMAM'] = np.array(EMAM)[-1]
         df_alternate.loc[df_alternate.index[-1], 'EMAL'] = np.array(EMAL)[-1]
     
-        s = [y_pred_single_denorm[6], 240, x+7, p, np.nan, np.nan, np.nan, np.nan]
+        s = [y_pred_single_denorm[6], z, x+7, p, np.nan, np.nan, np.nan, np.nan]
         s = pd.Series(s)
         s.index = X_val_single_denorm.index
         s = pd.DataFrame(s)
@@ -391,7 +391,7 @@ for z in range(df.shape[0]):
         df_alternate.loc[df_alternate.index[-1], 'EMAL'] = np.array(EMAL)[-1]
     
     
-        s = [y_pred_single_denorm[7], 240, x+8, p, np.nan, np.nan, np.nan, np.nan]
+        s = [y_pred_single_denorm[7], z, x+8, p, np.nan, np.nan, np.nan, np.nan]
         s = pd.Series(s)
         s.index = X_val_single_denorm.index
         s = pd.DataFrame(s)
@@ -409,7 +409,7 @@ for z in range(df.shape[0]):
         df_alternate.loc[df_alternate.index[-1], 'EMAL'] = np.array(EMAL)[-1]
         
     
-        s = [y_pred_single_denorm[8], 240, x+9, p, np.nan, np.nan, np.nan, np.nan]
+        s = [y_pred_single_denorm[8], z, x+9, p, np.nan, np.nan, np.nan, np.nan]
         s = pd.Series(s)
         s.index = X_val_single_denorm.index
         s = pd.DataFrame(s)
@@ -429,6 +429,7 @@ for z in range(df.shape[0]):
     
     plt.plot(df_alternate['e'][:df_data.shape[0]])
     plt.plot(df_data['e'])
+    plt.legend(['predicted', 'actual'])
     plt.show()
     df_alternate_contour[z] = df_alternate['e'][:df_data.shape[0]]
     df_actual_contour[z] = df_data['e']
